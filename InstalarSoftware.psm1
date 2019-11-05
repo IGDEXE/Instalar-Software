@@ -59,3 +59,26 @@ function Instalar-Software {
         Write-Host "$NomeSoftware ja esta instalado"
     }
 }
+
+# Exemplo de uso
+function Exemplo-InstalarSoftware {
+    $NomeSoftware = "Adobe DC" # Nome de exibicao do software
+    $Path = "\\servidor\Softwares\Utilitarios\Adobe Acrobat" # Caminho onde esta o instalador
+    $instalador = "AcroRdrDC1900820071_pt_BR.exe" # Arquivo de instalacao
+    $Parametro = "/sAll" # Parametros para instalacao, consultar com o fabricante ou testar alguns padroes: /s, /silent, /quiet...
+    $SoftwarePath = Test-Path -Path "C:\Program Files (x86)\Adobe\Acrobat Reader DC" # Caminho onde o softwate fica depois de instalado
+    # Faz a instalacao
+    Instalar-Software $NomeSoftware $Path $instalador $Parametro $SoftwarePath
+}
+
+# Instalador com ajuda
+function InstalarSoftware-Ajuda {
+    $NomeSoftware = Read-Host "Informe o nome do software"
+    $Path = Read-Host "Informe o caminho da pasta do instalador"
+    $instalador = Read-Host "Informe o instalador (ex: instalador.exe)"
+    $Parametro = Read-Host "Informe o parametro de instalacao (ex: /s, /silent, /quiet...)"
+    $caminhoPasta = Read-Host "Informe o caminho para validacao de instalacao"
+    $SoftwarePath = Test-Path -Path $caminhoPasta
+    # Faz a instalacao
+    Instalar-Software $NomeSoftware $Path $instalador $Parametro $SoftwarePath
+}
