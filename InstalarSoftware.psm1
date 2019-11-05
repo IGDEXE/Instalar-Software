@@ -42,6 +42,7 @@ function Instalar-Software {
 
     # Configuracoes gerais
     $pastaPadrao = "C:\TI\TEMP"
+    Validar-Pasta $pastaPadrao
 
     # Verifica se o programa esta instalado
     if ($SoftwarePath -eq $false) {
